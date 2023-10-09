@@ -28,12 +28,12 @@ function App() {
     fetchData()
   }, [selectedSection])
 
-  const handleSelectSection = (section) => {
-    setSelectedSection(section);
-  };
+  const handleSelectSection = section => {
+    setSelectedSection(section)
+  }
 
   return (
-    <div >
+    <div>
       <h1 className='header'>Top Stories</h1>
       <SectionList
         sections={allowedSections}
@@ -54,12 +54,16 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <img src={story.multimedia[0].url} alt={story.title} />
+                {' '}
+                <a href={story.url} target='_blank' rel='noopener noreferrer'>
+                  <img
+                 
+                    src={story.multimedia[0].url}
+                    alt={story.title}
+                  />
+                </a>
                 <h2>{story.title}</h2>
                 <p>{story.abstract}</p>
-                <a href={story.url} target='_blank' rel='noopener noreferrer'>
-                  Read More
-                </a>
               </motion.div>
             ))}
       </div>
